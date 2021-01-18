@@ -19,5 +19,6 @@
         <textarea name="content" class="form-control" placeholder="Need inspiration? How about... {{$suggestion}} " id="question-content">{{old("content")}}</textarea>
         <input class="btn btn-success ms-3" type="submit" value="Ask"/>
     </form>
+    <a href="{{route('questions.index')}}">Back to the questions</a>
 </div>
 @endsection
