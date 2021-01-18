@@ -17,7 +17,7 @@
             </a>
         </li>
         @empty
-        <h5>Oh wow! No questions yet... <a href="{{route("questions.create")}}">ask your own!</a></h5>
+        <h5>Oh wow! No questions yet...</h5>
         @endif
     </ul>
 </div>
