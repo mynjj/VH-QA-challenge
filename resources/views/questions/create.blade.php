@@ -16,7 +16,7 @@
     @endif
     <form class="mt-5 d-flex" method="POST" action="{{route("questions.store")}}">
         @csrf
-        <textarea name="content" class="form-control" placeholder="Your question here..." id="question-content">{{old("content")}}</textarea>
+        <textarea name="content" class="form-control" placeholder="Need inspiration? How about... {{$suggestion}} " id="question-content">{{old("content")}}</textarea>
         <input class="btn btn-success ms-3" type="submit" value="Ask"/>
     </form>
 </div>

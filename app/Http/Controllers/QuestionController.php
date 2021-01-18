@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Arr;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -14,7 +15,16 @@ class QuestionController extends Controller
         ]);
     }
     public function create(){
-        return view('questions.create');
+        return view('questions.create', [
+            'suggestion' => Arr::random([
+                'What do you eat?',
+                'Why do you care about animals?',
+                'Tips on quick vegan meals',
+                'How do you handle social events?',
+                'What is your favorite meal?',
+                'Do you really think you can make a change?',
+            ])
+        ]);
     }
     public function store(Request $request){
         $request->validate([
