@@ -7,10 +7,11 @@
         <main>
             <h1>VH Q&A Challenge</h1>
             @forelse($questions as $question)
-            {{$question->content}}
+            <a href="{{route("question.show", $question->id)}}">{{$question->content}}</a>
             @empty
-            No questions yet! Add a question!
+            No questions yet!</a>
             @endif
+            <a href="{{route("question.create")}}">Add a question!</a>
         </main>
     </body>
 </html>

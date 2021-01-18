@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-Route::get('/', [QuestionController::class, 'index']);
+Route::get('/', [QuestionController::class, 'index'])->name("question.index");
+Route::get('/question/create', [QuestionController::class, 'create'])->name("question.create");
+Route::post('/question', [QuestionController::class, 'store'])->name("question.store");
+Route::get('/question/{question}', [QuestionController::class, 'show'])->name("question.show");
+
+Route::post('/question/{question}/answer', [AnswerController::class, 'store'])->name("question.answer.store");
