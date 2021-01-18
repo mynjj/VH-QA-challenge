@@ -12,6 +12,6 @@ class AnswerController extends Controller
         $answer = new Answer(['content'=>$request->input("content")]);
         $question->answers()
                  ->save($answer);
-        return redirect()->route('question.show', $question->id);
+        return redirect()->route('questions.show', $question->id);
     }
 }

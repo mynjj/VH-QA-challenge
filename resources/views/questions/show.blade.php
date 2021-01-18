@@ -1,22 +1,38 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <main>
-            <h1>Question {{$question->content}}</h1>
-            @forelse($question->answers as $answer)
-            <p>{{$answer->content}}</p>
-            @empty
-            No answers yet!</a>
-            @endif
-            <h2>Add an answer!</h2>
-            <form method="POST" action="{{route("question.answer.store", $question->id)}}">
-                @csrf
-                <input type="text" name="content"/>
-                <input type="submit"/>
-            </form>
-        </main>
-    </body>
-</html>
+@extends('layout')
+
+@section('title', $question->content)
+@section('content')
+
+<div class="container">
+    <h1 class="text-center">{{$question->content}}</h1>
+    <h5>What people have said about this...</h5>
+
+    <div class="accordion">
+    @forelse($question->answers as $answer)
+    <div class="accordion-item" id="answer-accordion">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$loop->index}}">
+                Answer {{$loop->index + 1}}
+            </button>
+        </h2>
+        <div id="collapse-{{$loop->index}}" class="accordion-collapse collapse show" data-bs-parent="#answer-accordion">
+                <div class="accordion-body">
+                    {{$answer->content}}
+                </div>
+            </div>
+        </div>
+    @empty
+    No answers yet!
+    @endif
+    </div>
+
+    <hr/>
+    <h2>Add an answer!</h2>
+    <form class="d-flex" method="POST" action="{{route("question.answer.store", $question->id)}}">
+        @csrf
+        <textarea name="content" class="form-control" placeholder="Your answer here..." id="question-content"></textarea>
+        <input class="btn btn-success" type="submit" value="Answer"/>
+    </form>
+    <a href="{{route('questions.index')}}">Back to the questions</a>
+
+</div>

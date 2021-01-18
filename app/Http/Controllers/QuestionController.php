@@ -9,7 +9,7 @@ class QuestionController extends Controller
 {
     public function index(){
         $questions = Question::all();
-        return view('questions', [
+        return view('questions.index', [
             'questions'=>$questions
         ]);
     }
@@ -20,7 +20,7 @@ class QuestionController extends Controller
         $question = new Question();
         $question->content = $request->input("content");
         $question->save();
-        return redirect()->route('question.index');
+        return redirect()->route('questions.index');
     }
     public function show(Question $question){
         return view('questions.show', [

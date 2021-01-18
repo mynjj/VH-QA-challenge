@@ -1,11 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "vh-qa",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
+    "description": "Vegan Hacktivism Q&A Challenge.",
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
