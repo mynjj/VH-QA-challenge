@@ -23,6 +23,8 @@ class QuestionController extends Controller
                 'How do you handle social events?',
                 'What is your favorite meal?',
                 'Do you really think you can make a change?',
+                'Isn\'t it unhealthy to be a vegan?',
+                'Why is there a problem with milk or by-products?',
             ])
         ]);
     }
